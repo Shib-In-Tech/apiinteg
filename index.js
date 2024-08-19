@@ -9,19 +9,19 @@ let todos = [
 ]; // Predefined tasks
 
 // Get all todos
-app.get('/todos', (req, res) => {
+app.get('https://apiinteg.onrender.com/todos', (req, res) => {
   res.json(todos);
 });
 
 // Get a single todo by ID
-app.get('/todos/:id', (req, res) => {
+app.get('https://apiinteg.onrender.com/todos/:id', (req, res) => {
   const todo = todos.find(t => t.id === parseInt(req.params.id));
   if (!todo) return res.status(404).send('Todo not found');
   res.json(todo);
 });
 
 // Add a new todo
-app.post('/todos', (req, res) => {
+app.post('https://apiinteg.onrender.com/todos', (req, res) => {
   const todo = {
     id: todos.length + 1,
     task: req.body.task,
@@ -32,7 +32,7 @@ app.post('/todos', (req, res) => {
 });
 
 // Update an existing todo
-app.put('/todos/:id', (req, res) => {
+app.put('https://apiinteg.onrender.com/todos/:id', (req, res) => {
   const todo = todos.find(t => t.id === parseInt(req.params.id));
   if (!todo) return res.status(404).send('Todo not found');
 
@@ -42,7 +42,7 @@ app.put('/todos/:id', (req, res) => {
 });
 
 // Delete a todo
-app.delete('/todos/:id', (req, res) => {
+app.delete('https://apiinteg.onrender.com/todos/:id', (req, res) => {
   const todoIndex = todos.findIndex(t => t.id === parseInt(req.params.id));
   if (todoIndex === -1) return res.status(404).send('Todo not found');
 
